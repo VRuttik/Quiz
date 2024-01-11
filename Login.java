@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 public class Login extends JFrame implements ActionListener{
 	
 	JButton rules, back;
+	JTextField tfname;
 
 	Login(){
 		getContentPane().setBackground(Color.WHITE);
@@ -31,19 +32,19 @@ public class Login extends JFrame implements ActionListener{
 		name.setForeground(new Color(30, 144, 254));
 		add(name);
 		
-		JTextField tfname = new JTextField();
+		tfname = new JTextField();
 		tfname.setBounds(735, 200, 300, 25);
 		tfname.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		add(tfname);
 		
-		JButton rules = new JButton("Rules");
+		rules = new JButton("Rules");
 		rules.setBounds(735, 270, 120, 25);
 		rules.setBackground(new Color(30, 144, 254));
 		rules.setForeground(Color.white);
 		rules.addActionListener(this);
 		add(rules);
 		
-		JButton back = new JButton("Back");
+		back = new JButton("Back");
 	    back.setBounds(915, 270, 120, 25);
 		back.setBackground(new Color(30, 144, 254));
 		back.setForeground(Color.white);
@@ -57,8 +58,9 @@ public class Login extends JFrame implements ActionListener{
 	
 	public void actionPerformed(ActionEvent ae) {
 		if(ae.getSource() == rules) {
+			String name = tfname.getText();
 			setVisible(false);
-			new Rules();
+			new Rules(name);
 		}else if(ae.getSource() == back) {
 			setVisible(false);
 		}
